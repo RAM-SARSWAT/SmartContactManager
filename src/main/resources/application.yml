@@ -1,0 +1,19 @@
+server:
+  port: 2312
+  servlet:
+    context-path: /scm
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521/xe
+    username: system
+    password: root
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.Oracle12cDialect
+        enable_lazy_load_no_trans: true
+        proc:
+          param_null_passing: true
+        hbm2ddl:
+          auto: update
