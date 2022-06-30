@@ -11,25 +11,30 @@
             <div class="col-md-8 offset-md-2">
                 <div class="my-card mt-2">
                     <div class="container text-center">
-                        <img src="" style="width: 80px; height: auto" th:src="@{/images/register.png}" alt="">
+                        <img src="" style="width: 80px; height: auto" th:src="@{/images/register.png}"  alt="">
                     </div>
                     <h1 class="text-center">Register Here!!</h1>
-                    <form action="" th:action="@{/th/register}" method="post">
+                    <form action="" th:action="@{/th/register}" method="post" th:object="${user}">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name:</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter Here" required/>
+                            <input name="userName" type="text" class="form-control" id="name" placeholder="Enter Here" required th:value="${user.userName}"/>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter Here" required/>
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter Here" required th:value="${user.email}"/>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password:</label>
-                            <input type="password" class="form-control" id="password" placeholder="Enter Here" required/>
+                            <input name="password" type="password" class="form-control" id="password" placeholder="Enter Here" required />
                         </div>
                        <!--About-->
                         <div class="form-group">
-                            <textarea  required placeholder="Enter something yourself" rows="5" class="form-control"></textarea>
+                            <textarea name="about" required placeholder="Enter something yourself" rows="5" class="form-control" th:value="${user.about}"></textarea>
+                        </div>
+                        <!--Check Box-->
+                        <div class="form-group form-check">
+                            <input type="checkbox" name="agreement" id="agreement" class="form-check-input">
+                            <label for="agreement">Accept terms condition</label>
                         </div>
                         <div class="container text-center">
                         <button type="submit" class="btn bg-primary btn-block text-white">Submit</button>
