@@ -9,6 +9,10 @@ public class Constant {
 
     /* Parameter */
     public static  final String USER="user";
+    public static final String FALSE="false";
+    public static final String AGREEMENT="agreement";
+
+    public static final String TITLE="title";
 
     /* Template Page */
 
@@ -21,4 +25,8 @@ public class Constant {
     /* Logger Message */
 
     public static final String REGISTER_MESSAGE="User Register Successfully";
+
+    /* Title Name */
+
+    public static final String SIGNUP="SIGNUP";
 }
