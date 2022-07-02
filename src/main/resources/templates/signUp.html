@@ -10,26 +10,45 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="my-card mt-2">
+
+                    <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert alert-success"
+                         role="alert">
+                        <p class="text-center" th:text="${session.message.content}"></p>
+                        <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+                    </div>
                     <div class="container text-center">
-                        <img src="" style="width: 80px; height: auto" th:src="@{/images/register.png}"  alt="">
+                        <img src="" style="width: 80px; height: auto" th:src="@{/images/register.png}" alt="">
                     </div>
                     <h1 class="text-center">Register Here!!</h1>
-                    <form action="" th:action="@{/th/register}" method="post" th:object="${user}">
+                    <form novalidate action="" th:action="@{/th/register}" method="post" th:object="${user}">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name:</label>
-                            <input name="userName" type="text" class="form-control" id="name" placeholder="Enter Here" required th:value="${user.userName}"/>
-                        </div>
+                            <input th:classappend="${#fields.hasErrors('userName')?'is-invalid':''}" name="userName"
+                                   type="text" class="form-control" id="name" placeholder="Enter Here" required
+                                   th:value="${user.userName}"/>
+                            <div id="validationServer03Feedback" class="invalid-feedback"
+                                 th:each="e:${#fields.errors('userName')}" th:text="${e}"></div>
+                           </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email:</label>
-                            <input name="email" type="email" class="form-control" id="email" placeholder="Enter Here" required th:value="${user.email}"/>
-                        </div>
+                            <input name="email" type="email" th:classappend="${#fields.hasErrors('email')?'is-invalid':''}" class="form-control" id="email" placeholder="Enter Here"
+                                   required th:value="${user.email}"/>
+                            <div id="validationEmail" class="invalid-feedback"
+                                 th:each="e:${#fields.errors('email')}" th:text="${e}"></div>
+                           </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password:</label>
-                            <input name="password" type="password" class="form-control" id="password" placeholder="Enter Here" required  th:value="${user.password}"/>
+                            <input name="password" type="password" class="form-control" id="password"
+                                   placeholder="Enter Here" required th:value="${user.password}" th:classappend="${#fields.hasErrors('password')?'is-invalid':''}"/>
+                            <div id="validationPassword" class="invalid-feedback"
+                                 th:each="e:${#fields.errors('password')}" th:text="${e}"></div>
                         </div>
-                       <!--About-->
+                        <!--About-->
                         <div class="form-group">
-                            <textarea name="about" required placeholder="Enter something yourself" rows="5" class="form-control" th:text="${user.about}" th:value="${user.about}"></textarea>
+                            <textarea name="about" required placeholder="Enter something yourself" rows="5"
+                                      class="form-control" th:classappend="${#fields.hasErrors('about')?'is-invalid':''}" th:text="${user.about}" th:value="${user.about}"></textarea>
+                            <div id="validationAbout" class="invalid-feedback"
+                                 th:each="e:${#fields.errors('about')}" th:text="${e}"></div>
                         </div>
                         <!--Check Box-->
                         <div class="form-group form-check">
@@ -37,8 +56,8 @@
                             <label for="agreement">Accept terms condition</label>
                         </div>
                         <div class="container text-center">
-                        <button type="submit" class="btn bg-primary btn-block text-white">Submit</button>
-                        <button type="reset"  class="btn btn-warning btn-block text-white">Reset</button>
+                            <button type="submit" class="btn bg-primary btn-block text-white">Submit</button>
+                            <button type="reset" class="btn btn-warning btn-block text-white">Reset</button>
                         </div>
                     </form>
                 </div>

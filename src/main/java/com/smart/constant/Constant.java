@@ -29,4 +29,10 @@ public class Constant {
     /* Title Name */
 
     public static final String SIGNUP="SIGNUP";
+
+    /*  Error Message  */
+    public static final String MESSAGE = "message";
+    public static final Object ERROR_MSG = "Something went wrong. ";
+    public static final String TC_ERROR ="You have not agreed the terms and conditions." ;
+    public static final String SUCCESSFUL = "Success";
 }
