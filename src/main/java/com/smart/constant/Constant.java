@@ -5,6 +5,7 @@ public class Constant {
     /* RequestMapping */
 
     public static final String TH="/th";
+    public static final String USER_CONTROLLER="/user";
 
 
     /* Parameter */
@@ -17,11 +18,12 @@ public class Constant {
     /* Template Page */
 
     public static final String SIGNUP_PAGE="signUp";
+    public static final String USER_DASHBOARD="normal/user_dashboard";
 
     /* Url */
 
     public static final String REGISTER="/register";
-
+    public static final String GET_DASHBOARD="/getDashboard";
     /* Logger Message */
 
     public static final String REGISTER_MESSAGE="User Register Successfully";
