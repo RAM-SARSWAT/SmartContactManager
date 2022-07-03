@@ -1,6 +1,6 @@
 package com.smart.controller;
 
-import com.smart.entity.UserDetails;
+import com.smart.entity.UserDetail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -26,7 +26,7 @@ public class HomeController {
     @GetMapping(value = "/signUp")
     public String signUp(Model model){
         model.addAttribute("title","SCM");
-        model.addAttribute("user",new UserDetails());
+        model.addAttribute("user",new UserDetail());
         logger.info("Inside The SignUp Page");
         return "signUp";
     }

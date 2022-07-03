@@ -27,5 +27,5 @@ public class ContactDetails {
     @Column(name = "EMAIL")
     private String email;
     @ManyToOne
-    private UserDetails userDetails;
+    private UserDetail userDetails;
 }

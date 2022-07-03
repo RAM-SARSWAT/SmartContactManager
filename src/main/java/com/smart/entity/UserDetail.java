@@ -15,7 +15,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "USER_DETAILS_SCM")
-public class UserDetails {
+public class UserDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
@@ -28,9 +28,8 @@ public class UserDetails {
     @Size(min = 5,max = 40,message = "Email must be between 5-40 character")
     @Email(regexp = "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$")
     private String email;
-    @Size(min = 5,max = 30,message = "Password must be between 5-30 character")
+    @Size(min = 5,max = 300,message = "Password must be between 5-30 character")
     @NotBlank(message = "Password can not be Blank")
-    @Pattern(regexp =  "^(?=.*[0-9]).{8,15}$",message = "Password must Be Strong")
     @Column(name = "PASSWORD")
     private String password;
     @Column(name = "USER_ROLE")

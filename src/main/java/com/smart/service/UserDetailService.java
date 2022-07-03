@@ -1,7 +1,7 @@
 package com.smart.service;
 
-import com.smart.entity.UserDetails;
+import com.smart.entity.UserDetail;
 
 public interface UserDetailService {
-    UserDetails registerUser(UserDetails userDetails);
+    UserDetail registerUser(UserDetail userDetails);
 }
