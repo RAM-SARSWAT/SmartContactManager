@@ -1,7 +1,7 @@
 package com.smart.controller;
 
 import com.smart.dto.UserDetailsRequest;
-import com.smart.entity.UserDetails;
+import com.smart.entity.UserDetail;
 import com.smart.helper.Message;
 import com.smart.service.UserDetailService;
 import org.slf4j.Logger;
@@ -28,14 +28,14 @@ public class RegisterController {
     Logger logger = LoggerFactory.getLogger(RegisterController.class);
 
     @PostMapping(value = REGISTER)
-    public String registerUser(@Valid @ModelAttribute(USER) UserDetails userDetails,BindingResult bindingResult, @RequestParam(value = AGREEMENT, defaultValue = FALSE) Boolean agreement, Model model, HttpSession httpSession) {
+    public String registerUser(@Valid @ModelAttribute(USER) UserDetail userDetails, BindingResult bindingResult, @RequestParam(value = AGREEMENT, defaultValue = FALSE) Boolean agreement, Model model, HttpSession httpSession) {
         try {
             model.addAttribute(TITLE, SIGNUP);
             if (agreement) {
-                userDetailService.registerUser(userDetails);
+                UserDetail userDetail=userDetailService.registerUser(userDetails);
                 model.addAttribute(USER, new UserDetailsRequest());
                 httpSession.setAttribute(MESSAGE, new Message(SUCCESSFUL, "alert-success"));
-                logger.info(REGISTER_MESSAGE);
+                logger.info(REGISTER_MESSAGE+userDetails);
                 return SIGNUP_PAGE;
             } else if (bindingResult.hasErrors()) {
                 model.addAttribute(USER,userDetails);

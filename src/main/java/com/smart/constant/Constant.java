@@ -32,9 +32,10 @@ public class Constant {
 
     public static final String SIGNUP="SIGNUP";
 
-    /*  Error Message  */
+    /*   Message  */
     public static final String MESSAGE = "message";
     public static final Object ERROR_MSG = "Something went wrong. ";
     public static final String TC_ERROR ="You have not agreed the terms and conditions." ;
     public static final String SUCCESSFUL = "Success";
+    public static final String USER_NOT_FOUND_ERR = "User Not Found";
 }
