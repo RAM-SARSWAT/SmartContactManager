@@ -18,17 +18,30 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.authenticationProvider(authenticationProvider());
-    }
-    /* @Bean
+
+
+    /*
+    @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/admin/**").hasRole(Role.ADMIN.toString())
-                .antMatchers("/user/**").hasRole(Role.USER.toString()).antMatchers("/**").permitAll()
-                .and().formLogin().and().csrf().disable();
+                .antMatchers("/user/**").hasRole(Role.USER.toString())
+                .antMatchers("/**").permitAll()
+                .and().formLogin().and()
+                .csrf().disable();
         return http.build();
-    }*/
+    }
+
+     @Bean
+    public AuthenticationManager authenticationManager(
+            AuthenticationConfiguration authenticationConfiguration) throws Exception {
+        return authenticationConfiguration.getAuthenticationManager();
+    }
+    */
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)  {
+        auth.authenticationProvider(authenticationProvider());
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -56,10 +69,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
         return daoAuthenticationProvider;
     }
-
-   /* @Bean
-    public AuthenticationManager authenticationManager(
-            AuthenticationConfiguration authenticationConfiguration) throws Exception {
-        return authenticationConfiguration.getAuthenticationManager();
-    }*/
 }
