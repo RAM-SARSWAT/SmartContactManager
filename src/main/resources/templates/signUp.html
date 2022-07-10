@@ -46,7 +46,9 @@
                         <!--About-->
                         <div class="form-group">
                             <textarea name="about" required placeholder="Enter something yourself" rows="5"
-                                      class="form-control" th:classappend="${#fields.hasErrors('about')?'is-invalid':''}" th:text="${user.about}" th:value="${user.about}"></textarea>
+                                      class="form-control"
+                                      th:classappend="${#fields.hasErrors('about')?'is-invalid':''}"
+                                      th:text="${user.about}" th:value="${user.about}"></textarea>
                             <div id="validationAbout" class="invalid-feedback"
                                  th:each="e:${#fields.errors('about')}" th:text="${e}"></div>
                         </div>
@@ -55,9 +57,12 @@
                             <input type="checkbox" name="agreement" id="agreement" class="form-check-input">
                             <label for="agreement">Accept terms condition</label>
                         </div>
-                        <div class="container text-center">
-                            <button type="submit" class="btn bg-primary btn-block text-white">Submit</button>
-                            <button type="reset" class="btn btn-warning btn-block text-white">Reset</button>
+                        <div class="d-grid  col-6 mx-auto justify-content-center  text-center">
+                            <button class="btn bg-primary btn-lg text-white " type="submit">Submit</button>
+                            <button class="btn btn-warning  text-white  btn-lg" type="reset">Reset</button>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a class="text-info" href="#" th:href="@{/th/login}">Login here?</a>
                         </div>
                     </form>
                 </div>
