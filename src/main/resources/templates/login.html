@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<section class="img d-flex justify-content-center">
+    <div class="container">
+        <div class="card card-container mt-2">
+            <img id="profile-img" class="profile-img-card" th:src="@{/images/login.png}" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <div th:if="${param.error}" class="alert alert-danger">
+                Invalid Username & Password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+            <form class="form-signin" action="#" th:action="@{/th/doLogin}" method="post">
+                <div class="form-group">
+                    <label for="username" class="text-info sr-only">Username:</label><br>
+                    <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label for="password" class="text-info sr-only">Password:</label><br>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                </div> <div id="remember" class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form><!-- /form -->
+            <div class="row">
+            <div id="register-link" class="col-md-4">
+                <a href="" th:href="@{signUp}" class="text-info">Register here?</a>
+            </div>
+            <div class="forgot-password col-md-8">
+            <a href="#" class="text-info">Forgot the password?</a>
+            </div>
+            </div>
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+</section>
+</body>
+</html>

@@ -13,22 +13,27 @@ public class HomeController {
     Logger logger=LoggerFactory.getLogger(HomeController.class);
     @GetMapping(value = "/")
     public String home(Model model){
-        model.addAttribute("title","SCM");
+        model.addAttribute("title","Home");
         logger.info("Inside The Home Page");
         return "home";
     }
     @GetMapping(value = "/about")
     public String about(Model model){
-        model.addAttribute("title","SCM");
+        model.addAttribute("title","About");
         logger.info("Inside The about Page");
         return "about";
     }
     @GetMapping(value = "/signUp")
     public String signUp(Model model){
-        model.addAttribute("title","SCM");
+        model.addAttribute("title","SignUp");
         model.addAttribute("user",new UserDetail());
         logger.info("Inside The SignUp Page");
         return "signUp";
     }
+@GetMapping(value = "/login")
+    public String login(Model model){
+    model.addAttribute("title","Login");
+    return "login";
+}
 
 }

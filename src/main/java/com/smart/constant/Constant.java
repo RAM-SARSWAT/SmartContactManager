@@ -12,6 +12,7 @@ public class Constant {
     public static  final String USER="user";
     public static final String FALSE="false";
     public static final String AGREEMENT="agreement";
+    public static final Object USER_DASHBOARD_PAGE = "User Dashboard";
 
     public static final String TITLE="title";
 

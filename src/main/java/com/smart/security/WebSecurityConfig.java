@@ -47,9 +47,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/admin/**").hasRole(Role.ADMIN.toString())
-                .antMatchers("/user/**").hasRole(Role.USER.toString())
+                .antMatchers("/user/**").authenticated()
                 .antMatchers("/**").permitAll()
-                .and().formLogin().and().csrf().disable();
+                .and().formLogin().loginPage("/th/login")
+                .loginProcessingUrl("/th/doLogin").defaultSuccessUrl("/user/getDashboard")
+                /*.failureUrl("/th/loginFail")*/
+                .and().csrf().disable();
     }
 
     @Bean
