@@ -7,33 +7,35 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import static com.smart.constant.Constant.*;
+
 @Controller
-@RequestMapping("/th")
+@RequestMapping(TH)
 public class HomeController {
     Logger logger=LoggerFactory.getLogger(HomeController.class);
-    @GetMapping(value = "/")
+    @GetMapping(value = SEPARATOR)
     public String home(Model model){
-        model.addAttribute("title","Home");
+        model.addAttribute(TITLE, HOME);
         logger.info("Inside The Home Page");
-        return "home";
+        return HOME_PAGE;
     }
-    @GetMapping(value = "/about")
+    @GetMapping(value = ABOUT_URL)
     public String about(Model model){
-        model.addAttribute("title","About");
+        model.addAttribute(TITLE,ABOUT);
         logger.info("Inside The about Page");
-        return "about";
+        return ABOUT_PAGE;
     }
-    @GetMapping(value = "/signUp")
+    @GetMapping(value = SIGNUP_URL)
     public String signUp(Model model){
-        model.addAttribute("title","SignUp");
-        model.addAttribute("user",new UserDetail());
+        model.addAttribute(TITLE,SIGNUP);
+        model.addAttribute(USER,new UserDetail());
         logger.info("Inside The SignUp Page");
-        return "signUp";
+        return SIGNUP_PAGE;
     }
-@GetMapping(value = "/login")
+@GetMapping(value = LOGIN_URL)
     public String login(Model model){
-    model.addAttribute("title","Login");
-    return "login";
+    model.addAttribute(TITLE,LOGIN);
+    return LOGIN_PAGE;
 }
 
 }

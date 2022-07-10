@@ -15,9 +15,9 @@ public class UserController {
     Logger logger= LoggerFactory.getLogger(UserController.class);
     @GetMapping(GET_DASHBOARD)
     public String getDashboard(Model model){
-        model.addAttribute(TITLE,USER_DASHBOARD_PAGE);
+        model.addAttribute(TITLE,USER_DASHBOARD);
         logger.info("inside dashBoard");
-        return USER_DASHBOARD;
+        return USER_DASHBOARD_PAGE;
     }
 
 }
